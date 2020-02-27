@@ -12,7 +12,7 @@ public class playerScript : MonoBehaviour
     public float kickTime;
     public float speed;
     public float kickPower;
-    public bool closestToBall=false;
+    public bool closestToBall = false;
     public int teamNumber;
     public bool threatened;
     public GameObject regionDefend;
@@ -26,7 +26,7 @@ public class playerScript : MonoBehaviour
     void Start()
     {
 
-      
+
 
         kickTime = 5.0f;
         speed = 40;
@@ -40,7 +40,7 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject == team.GetComponent<teamScript>().supportPlayer1 || gameObject == team.GetComponent<teamScript>().supportPlayer2)
+        if (gameObject == team.GetComponent<teamScript>().supportPlayer1attack || gameObject == team.GetComponent<teamScript>().supportPlayer1defence || gameObject == team.GetComponent<teamScript>().supportPlayer2attack || gameObject == team.GetComponent<teamScript>().supportPlayer2defence)
             supportPlayer = true;
         else
             supportPlayer = false;
@@ -71,22 +71,24 @@ public class playerScript : MonoBehaviour
     //    {
     //        threatened = true;
     //    }
-        
-       
-        
+
+
+
     //}
+
+    //creates a sphere collider and checks if opposite players are close
     private void threatCheck()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 2.5f) ;
+        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 2.5f);
         int i = 0;
         int threats = 0;
         while (i < hitColliders.Length)
         {
-            if(teamNumber==1&&hitColliders[i].tag=="Team2")
+            if (teamNumber == 1 && hitColliders[i].tag == "Team2")
             {
                 threats++;
             }
-            else if(teamNumber==2&&hitColliders[i].tag=="Team1")
+            else if (teamNumber == 2 && hitColliders[i].tag == "Team1")
             {
                 threats++;
             }
@@ -99,10 +101,10 @@ public class playerScript : MonoBehaviour
         else
             threatened = false;
     }
-    
+
     public Transform checkCurrentRegion()
     {
-        
+
         if (ball.GetComponent<ballScript>().possesion == teamNumber)
             return regionAttack.transform;
         else

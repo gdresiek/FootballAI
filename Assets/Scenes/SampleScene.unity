@@ -197,8 +197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerClosestToBall1: {fileID: 0}
   playerClosestToBall2: {fileID: 0}
-  supportPlayer1: {fileID: 0}
-  supportPlayer2: {fileID: 0}
+  supportPlayer1attack: {fileID: 0}
+  supportPlayer1defence: {fileID: 0}
+  supportPlayer2attack: {fileID: 0}
+  supportPlayer2defence: {fileID: 0}
 --- !u!4 &277133326
 Transform:
   m_ObjectHideFlags: 0
@@ -2504,7 +2506,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2:2
+  m_Text: 0:0
 --- !u!222 &2122631783
 CanvasRenderer:
   m_ObjectHideFlags: 0
